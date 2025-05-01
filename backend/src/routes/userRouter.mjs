@@ -2,13 +2,27 @@ import express from "express";
 const userRouter = express.Router();
 
 //controllers
-import { register } from "../controllers/userController.mjs";
+import { register, login, getCurrentUser } from "../controllers/userController.mjs";
 
 //Middlewares
-import { userCreateValidation } from "../middlewares/userValidations.mjs";
-import { registerValidator } from "../middlewares/validation.mjs";
+import { 
+    userCreateValidation, 
+    userLoginValidation,
+} 
+from "../middlewares/userValidations.mjs";
+
+import { validator  } from "../middlewares/validation.mjs";
+import authGuard from "../middlewares/authGurad.mjs";
 
 //Rotas
-userRouter.post('/register', userCreateValidation(), registerValidator, register);
+
+//Registro
+userRouter.post('/register', userCreateValidation(), validator, register);
+
+//Login
+userRouter.post('/login', userLoginValidation(), validator, login);
+
+//Rota de perfil de usuário
+userRouter.get('/profile', authGuard, getCurrentUser);
 
 export default userRouter;

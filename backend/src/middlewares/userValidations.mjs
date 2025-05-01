@@ -1,5 +1,6 @@
 import { body } from "express-validator";
 
+//Validações de cadastro
 export const userCreateValidation = () => {
     return[
         body("nome")
@@ -20,6 +21,32 @@ export const userCreateValidation = () => {
 
         body("data_nascimento")
         .isDate()
-        .withMessage("Informe uma data válida.")
+        .withMessage("Informe uma data válida."),
+
+        body("confirmPassword")
+        .isString()
+        .withMessage("A confirmação de senha é obrigatória!")
+        .custom((value, {req}) => {
+            if(value != req.body.password){
+                throw new Error("As senhas não são iguais!")
+            }
+
+            return true
+        })
+    ]
+}
+
+//Validações de login
+export const userLoginValidation = () => {
+    return[
+        body("email")
+        .isString()
+        .withMessage("O E-mail é obrigatório.")
+        .isEmail()
+        .withMessage("Informe um E-mail válido."),
+
+        body("password")
+        .isString()
+        .withMessage("A senha é obrigatória.")
     ]
 }

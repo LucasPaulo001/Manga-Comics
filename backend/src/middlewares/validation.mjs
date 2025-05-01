@@ -1,7 +1,7 @@
 import { validationResult } from "express-validator";
 
 //Middleware de captura de errors
-export const registerValidator = (req, res, next) => {
+export const validator = (req, res, next) => {
 
     //Capturando erros na requisição
     const errors = validationResult(req);
