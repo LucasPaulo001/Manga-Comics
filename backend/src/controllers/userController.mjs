@@ -5,7 +5,7 @@ import bcryptjs from "bcryptjs";
 //Gerando token
 const generateToken = (userId) => {
     return jwt.sign(
-        { id: userId },
+        { id: userId, isAdmin: userId.isAdmin}, 
         process.env.JWT_SECRET,
         { expiresIn: '7d' }
     );

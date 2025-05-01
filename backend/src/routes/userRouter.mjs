@@ -8,10 +8,11 @@ import { register, login, getCurrentUser } from "../controllers/userController.m
 import { 
     userCreateValidation, 
     userLoginValidation,
+    
 } 
 from "../middlewares/userValidations.mjs";
 
-import { validator  } from "../middlewares/validation.mjs";
+import { validator, isAdmin  } from "../middlewares/validation.mjs";
 import authGuard from "../middlewares/authGurad.mjs";
 
 //Rotas

@@ -22,3 +22,12 @@ export const validator = (req, res, next) => {
         errors: extractedErrors,
     });
 }
+
+//Validação de atribuições de admin
+export const isAdmin = (req, res, next) => {
+    if(!req.user || !req.user.isAdmin){
+        return res.status(422).json({errors: ["Acesso negado: apenas Admins!"]});
+    }
+
+    next();
+}
