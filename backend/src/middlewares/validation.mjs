@@ -28,6 +28,7 @@ export const isAdmin = (req, res, next) => {
     if(!req.user || !req.user.isAdmin){
         return res.status(422).json({errors: ["Acesso negado: apenas Admins!"]});
     }
+    console.log(req.user);
 
     next();
 }
