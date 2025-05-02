@@ -7,6 +7,7 @@ export const addMangas = async (req, res) => {
     res.send("Add mangas");
 }
 
+//Rota para listar mangas
 export const mangas = async (req, res) => {
     res.send("Listando mangas");
 }
