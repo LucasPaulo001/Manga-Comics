@@ -1,0 +1,41 @@
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    background-color: #10243F;
+    color: white;
+    height: 10vh;
+    align-items: center;
+    padding: 5px;
+    font-family: 'karantina';
+    font-size: 3vw;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.226);
+}
+
+::placeholder{
+    color: rgb(211, 211, 211);
+}
+
+.iconInput{
+    font-size: 1.5vw;
+    position: absolute;
+    right: 10px;
+    top: 7px;
+    cursor: pointer;
+}
+
+.icon{
+    cursor: pointer;
+}
+form{
+    width: 80%;
+    display: flex;
+    justify-content: center;
+}
+.inputAction{
+    position: relative;
+    width: 50%;
+    display: flex;
+    color: white;
+    justify-content: center;
+}
+
