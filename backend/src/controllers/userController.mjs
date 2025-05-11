@@ -13,7 +13,7 @@ const generateToken = (userId) => {
 
 //Rota de registro de usuários
 export const register = async(req, res) => {
-    const { nome, email, password, data_nascimento } = req.body;
+    const { nome, email, password } = req.body;
 
     try{
         //Buscando usuário no banco
@@ -33,7 +33,6 @@ export const register = async(req, res) => {
             nome,
             email,
             password: hashPass,
-            data_nascimento
         });
 
         //Salvando usuário
@@ -45,7 +44,8 @@ export const register = async(req, res) => {
         });
     }
     catch(error){
-        res.status(422).json({errors: ["Erro ao se cadastrar: "]});
+        console.error("Erro no registro de usuário:", error); // Logando o erro real
+        res.status(422).json({ errors: ["Erro ao se cadastrar, tente novamente mais tarde."] });
     }
 }
 
@@ -64,7 +64,7 @@ export const login = async(req, res) => {
 
         res.status(200).json({
             _id: user._id,
-            token: generateToken(user._id)
+            token: generateToken(user._id, user.isAdmin)
         });
     }
     catch(error){

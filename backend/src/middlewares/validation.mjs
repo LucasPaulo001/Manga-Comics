@@ -18,7 +18,7 @@ export const validator = (req, res, next) => {
     errors.array().map((err) => extractedErrors.push(err.msg));
 
     //Retornando erros
-    return res.status(201).json({
+    return res.status(422).json({
         errors: extractedErrors,
     });
 }
@@ -26,7 +26,7 @@ export const validator = (req, res, next) => {
 //Validação de atribuições de admin
 export const isAdmin = (req, res, next) => {
     if(!req.user || !req.user.isAdmin){
-        return res.status(422).json({errors: ["Acesso negado: apenas Admins!"]});
+        return res.status(403).json({errors: ["Acesso negado: apenas Admins!"]});
     }
     console.log(req.user);
 

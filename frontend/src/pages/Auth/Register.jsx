@@ -7,6 +7,10 @@ import {Link} from "react-router-dom"
 
 //Hooks
 import { useState, useEffect } from "react"
+import { useSelector, useDispatch } from 'react-redux'
+
+//Redux
+import { register, reset } from "../../slices/authSlice"
 
 const Register = () => {
 
@@ -15,11 +19,25 @@ const Register = () => {
     const [password, setPassword] = useState("")
     const [confirmPass, setConfirmPass] = useState("")
 
+    const dispatch = useDispatch() 
+
+    const { loading, error } = useSelector((state) => state.auth)
+
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log(nome, email, password, confirmPass)
-        setNome("")
+        const user = {
+            nome, 
+            email,
+            password,
+            confirmPass
+        } 
+
+        dispatch(register(user))
     }
+
+    useEffect(() => {
+        dispatch(reset())
+    }, [dispatch])
 
 
   return (
@@ -48,20 +66,23 @@ const Register = () => {
                     />
                 </div>
                 <div className="inputAction">
-                    <input 
-                    type="password" 
-                    placeholder="Senha" 
+                    <input
+                    type="password"
+                    placeholder="Senha"
                     value={password || ""}
                     onChange={(e) => {setPassword(e.target.value)}}
                     />
                 </div>
                 <div className="inputAction">
-                    <input 
-                    type="password" 
-                    placeholder="Repita a senha" 
-                    value={confirmPass || ""}
-                    onChange={(e) => {setConfirmPass(e.target.value)}}
-                    />
+                    <div id="validationPass">
+                        <input 
+                        type="password" 
+                        placeholder="Repita a senha" 
+                        value={confirmPass || ""}
+                        onChange={(e) => {setConfirmPass(e.target.value)}}
+                        />
+                        {confirmPass !== password && <span className="msgPass">As senhas não estão iguais</span>}
+                    </div>
                 </div>
                 <div className="btns">
                     <button type="submit">Fazer registro</button>
