@@ -1,0 +1,63 @@
+.menuMob{
+    height: 100vh;
+    position: absolute;
+    width: 100vw;
+    top: 20vw;
+    display: flex;
+    left: 0;
+    bottom: 0;
+    overflow: visible;
+    visibility: visible;
+    background-color: #ffffff33;
+    justify-content: center;
+    backdrop-filter: blur(1px);
+    transition: .4s ease-in-out;
+}
+.menuMob img{
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    z-index: -9;
+    filter: brightness(0.3) blur(3px);
+}
+
+.desative{
+    width: 0;
+    overflow: hidden;
+    visibility: hidden;
+    transition: .4s ease-in-out;
+    height: 100vh;
+    position: absolute;
+    top: 20vw;
+    display: flex;
+    left: 0;
+    bottom: 0;
+    overflow: hidden;
+    visibility: hidden;
+    background-color: #ffffff33;
+    justify-content: center;
+    backdrop-filter: blur(1px);
+    transition: .4s ease-in-out;
+}
+
+.itemsMob{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    margin: 15px;
+}
+
+.logout{
+    color: rgb(252, 68, 68);
+}
+
+.itemsMob li{
+    list-style: none;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}

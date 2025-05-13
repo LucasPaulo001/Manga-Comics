@@ -1,8 +1,8 @@
 import "./Auth.css"
+import Message from "../../components/Message"
 
 //Imagens
 import background from "../../assets/images/background.jpg"
-
 import {Link} from "react-router-dom"
 
 //Hooks
@@ -66,26 +66,45 @@ const Register = () => {
                     />
                 </div>
                 <div className="inputAction">
-                    <input
-                    type="password"
-                    placeholder="Senha"
-                    value={password || ""}
-                    onChange={(e) => {setPassword(e.target.value)}}
-                    />
+                    <div className="validationPass">
+                        <input
+                        type="password"
+                        placeholder="Senha"
+                        value={password || ""}
+                        onChange={(e) => {setPassword(e.target.value)}}
+                        />
+                        {
+                            password.length < 5 && password.length > 1 ?
+                                <span className="msgPass">
+                                    A senha tem que ter no mínimo 5 caracteres!
+                                </span> 
+                            : ""
+                        }
+                    </div>
                 </div>
                 <div className="inputAction">
-                    <div id="validationPass">
+                    <div className="validationPass">
                         <input 
                         type="password" 
                         placeholder="Repita a senha" 
                         value={confirmPass || ""}
                         onChange={(e) => {setConfirmPass(e.target.value)}}
                         />
-                        {confirmPass !== password && <span className="msgPass">As senhas não estão iguais</span>}
+                        {
+                            
+                            confirmPass.length >= 2 && password !== confirmPass ?
+                             <span className="msgPass">
+                                As senhas não estão iguais
+                            </span> 
+                            : ""
+                        }
                     </div>
                 </div>
                 <div className="btns">
-                    <button type="submit">Fazer registro</button>
+                    {!loading && <button type="submit">Fazer registro</button>}
+                    {loading && <button disabled type="submit">Carregando...</button>}
+                    {error && <Message msg={error} type="error" />}
+                    
                     <span className="line"></span>
                     <span id="msg">
                         Já tem uma conta? <Link to={'/login'}>Clique aqui</Link>

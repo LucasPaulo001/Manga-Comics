@@ -9,7 +9,13 @@
     font-family: 'karantina';
     font-size: 3vw;
     border-bottom: 1px solid rgba(255, 255, 255, 0.226);
+    position: sticky;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 999;
 }
+
 
 ::placeholder{
     color: rgb(211, 211, 211);
@@ -37,5 +43,33 @@ form{
     display: flex;
     color: white;
     justify-content: center;
+}
+.iconMenu{
+    display: none;
+}
+
+@media(max-width: 640px){
+    .navbar{
+        justify-content: space-between;
+        font-size: 9vw;
+    }
+    form{
+        display: none;
+    }
+    .iconMenu{
+        display: flex;
+    }
+    .menuMob{
+        display: flex;
+        position: absolute;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        z-index: -9;
+    }
+    
+    .closeMenu{
+        display: none;
+    }
 }
 

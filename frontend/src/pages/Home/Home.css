@@ -1,0 +1,17 @@
+.contentHome{
+    display: grid;
+    grid-template-columns: 20% 1fr;
+    height: 90vh;
+    color: white;
+}
+
+.content{
+    padding: 10px;
+    overflow-y: auto;
+}
+
+@media(max-width: 640px){
+    .contentHome{
+        display: flex;
+    }
+}
