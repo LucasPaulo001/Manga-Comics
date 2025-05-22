@@ -1,0 +1,14 @@
+.content-login{
+    /*background-image: url('../../../assets/images/Frame2.png');*/
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    gap: 1.3em;
+    justify-content: center;
+    color: black !important;
+    background-image: linear-gradient(90deg, #00346b17,  transparent);
+}
+
+#loginName{
+    color: #8da9c4;
+}

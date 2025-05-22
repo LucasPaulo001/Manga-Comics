@@ -1,7 +1,10 @@
 import './App.css'
 
+//Componentes
+import Login from './pages/auth/login/Login'
+
 //Router
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom"
+import { BrowserRouter, Routes, Route } from "react-router-dom"
 
 function App() {
 
@@ -10,7 +13,7 @@ function App() {
       <div className="App">
         <BrowserRouter>
           <Routes>
-            {/* <Route path='/' element={} /> */}
+            <Route path='/' element={<Login />} />
           </Routes>
         </BrowserRouter>
       </div>
