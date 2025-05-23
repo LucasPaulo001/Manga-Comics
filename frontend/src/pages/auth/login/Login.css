@@ -39,6 +39,10 @@
     right: 0;
 }
 
+.register{
+    gap: 2vw;
+}
+
 .desative_register{
     width: 0;
     overflow: hidden;
@@ -70,6 +74,8 @@
     display: flex;
     justify-content: space-between;
     transition: .1s ease-in-out;
+    align-items: center;
+    height: 100vh;
 }
 
 .desative-login{
@@ -91,14 +97,13 @@
 }
 
 .desative-login .img-login{
-    transform: translateX(500px);
-    transition: 2s;
-    transition: 2s ease-in-out;
+    transform: scale(1.5) translateX(500px);
+    transition: .8s ease-in-out;
 }
 .desative_register .img-register{
     position: absolute;
     left: 0;
     top: 0;
-    transform: translateX(-300px);
-    transition: 2s ease-in-out;
+    transform: scale(1.5) translateX(-300px);
+    transition: .8s ease-in-out;
 }

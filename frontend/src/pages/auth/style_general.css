@@ -30,7 +30,6 @@
 .local-btns, .local-btns-r{
     display: flex;
     flex-direction: column;
-    gap: 1em;
     align-items: center;
     width: 100%;
 }

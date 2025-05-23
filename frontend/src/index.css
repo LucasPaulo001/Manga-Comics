@@ -26,4 +26,41 @@ button{
   transition: .5s;
 }
 
+.inputPadrao{
+  background-color: #00346b;
+  width: 100%;
+  height: 30px;
+  color: white;
+  text-indent: 15px;
+  outline: none;
+  border-radius: 10px;
+  border: 1px solid white;
+  transition: .4s ease-in-out;
+}
+
+.inputPadrao:focus{
+  box-shadow: 1px 1px 4px 6px #409cff;
+}
+
+.input{
+  width: 30vw;
+}
+
+.errorMessage{
+    color: red;
+    padding: 1vw;
+    border-radius: 10px;
+    font-size: 2vw;
+}
+
+.successMessage{
+    color: rgba(0, 128, 0, 0.74);
+    padding: 1vw;
+    border-radius: 10px;
+    font-size: 2vw;
+}
+
+footer{
+  height:30vh;
+}
 

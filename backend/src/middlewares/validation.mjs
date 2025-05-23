@@ -18,7 +18,7 @@ export const validator = (req, res, next) => {
     errors.array().map((err) => extractedErrors.push(err.msg));
 
     //Retornando erros
-    return res.status(201).json({
+    return res.status(422).json({
         errors: extractedErrors,
     });
 }

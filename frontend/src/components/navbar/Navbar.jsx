@@ -1,10 +1,27 @@
 
-import styles from "./Navbar.module.css"
+import "./Navbar.css"
 
 const Navbar = () => {
     return(
         <>
-            <h1>Navbar</h1>
+            <div className="navbar">
+                <div>
+                    <h1>Manga Comics</h1>
+                </div>
+                <div>
+                    <form>
+                        <div className="input">
+                            <input className="inputPadrao" 
+                            type="text" 
+                            placeholder="Busque por algo..."
+                            />
+                        </div>    
+                    </form>
+                </div>
+                <div>
+                    Perfil
+                </div>
+            </div>
         </>
     )
 }
