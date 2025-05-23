@@ -8,27 +8,11 @@
 
 body{
   font-family: "Karantina", system-ui;
-}
-
-input{
-  border-radius: 5px;
-  height: 40px;
-  text-indent: 15px;
-  width: 100%;
-  border: 1px solid #63afff;
-  outline: none;
-  transition: .4s ease-in-out;
-  background-color: #34649786;
-  color: white;
+  overflow-x: hidden;
 }
 
 input::placeholder{
   color: rgb(255, 255, 255);
-}
-
-input:focus{
-  border: 1px solid #007bff; 
-  box-shadow: 1px 1px 11px 4px #007bff9f;
 }
 
 button{

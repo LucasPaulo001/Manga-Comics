@@ -1,14 +1,104 @@
 .content-login{
     /*background-image: url('../../../assets/images/Frame2.png');*/
     height: 100vh;
+    width: 100%;
     display: flex;
     align-items: center;
+    position: relative;
     gap: 1.3em;
     justify-content: center;
     color: black !important;
-    background-image: linear-gradient(90deg, #00346b17,  transparent);
+    background-image: linear-gradient(90deg, #00346b41,  transparent);
+    z-index: 99;
+    
 }
 
 #loginName{
     color: #8da9c4;
+}
+
+#titlePage{
+    text-align: center;
+    position: absolute;
+    padding: 1vw;
+    color: #00346b;
+    background-color: #00346b56;
+    border-radius: 0 0 20px 0;
+    top: 0;
+    left: 0;
+}
+
+#titlePage-r{
+    text-align: center;
+    position: absolute;
+    padding: 1vw;
+    color: #6b0000;
+    top: 0;
+    background-color: #6b00004b;
+    border-radius: 0 0 0 20px;
+    right: 0;
+}
+
+.desative_register{
+    width: 0;
+    overflow: hidden;
+    visibility: hidden;
+    transition: .2s ease-in-out;
+    opacity: .7;
+    z-index: -9;
+}
+
+#registerName{
+    color: rgb(201, 41, 41);
+}
+
+.content-register{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    overflow: visible;
+    visibility: visible;
+    transition: .2s;
+    animation: animRegister;
+    z-index: 99;
+    position: relative;
+    background-image: linear-gradient(-90deg, #6b000041,  transparent);
+}
+
+#login_register{
+    display: flex;
+    justify-content: space-between;
+    transition: .1s ease-in-out;
+}
+
+.desative-login{
+    width: 0;
+    overflow: hidden;
+    visibility: hidden;
+    animation: loginDes .4s ease-in-out;
+    opacity: .7;
+    z-index: -9;
+    transition: .1s;
+}
+
+.desative-login .img-login, .desative_register .img-register{
+    position: absolute;
+    right: 0;
+    top: 0;
+    opacity: 0;
+    transition: .4s;
+}
+
+.desative-login .img-login{
+    transform: translateX(500px);
+    transition: 2s;
+    transition: 2s ease-in-out;
+}
+.desative_register .img-register{
+    position: absolute;
+    left: 0;
+    top: 0;
+    transform: translateX(-300px);
+    transition: 2s ease-in-out;
 }

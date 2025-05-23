@@ -12,7 +12,7 @@
     border-radius: 10px;
 }
 
-.to-register{
+.to-register, .to-login{
     font-size: 1.8vw;
     color: #000000;
 }
@@ -22,7 +22,12 @@
     text-decoration: underline;
 }
 
-.local-btns{
+.to-login a{
+    color: rgb(212, 54, 54);
+    text-decoration: underline;
+}
+
+.local-btns, .local-btns-r{
     display: flex;
     flex-direction: column;
     gap: 1em;
@@ -36,13 +41,57 @@
     border: 1px solid #033e8aa4;
 }
 
+.local-btns-r button{
+    color: #960707a4;
+    height: 40px;
+    border: 1px solid #8a0303a4;
+}
+
 .local-btns button:hover{
     background-color: #033e8aa4;
     color: white;
 }
 
+.local-btns-r button:hover{
+    background-color: #ff000086;
+    color: white;
+}
 
-.input-form{
+.input-form input{
+    border-radius: 5px;
+    height: 40px;
+    text-indent: 15px;
+    width: 100%;
+    border: 1px solid #63afff;
+    outline: none;
+    transition: .4s ease-in-out;
+    background-color: #34649786;
+    color: white;
+}
+
+.input-form input:focus{
+  border: 1px solid #007bff; 
+  box-shadow: 1px 1px 11px 4px #007bff9f;
+}
+
+.input-form-r input:focus{
+  border: 1px solid #ff0000; 
+  box-shadow: 1px 1px 11px 4px #ff00009f;
+}
+
+.input-form-r input{
+    border-radius: 5px;
+    height: 40px;
+    text-indent: 15px;
+    width: 100%;
+    border: 1px solid #ff6363;
+    outline: none;
+    transition: .4s ease-in-out;
+    background-color: #97343486;
+    color: white;
+}
+
+.input-form, .input-form-r{
     width: 100%;
 }
 
@@ -58,7 +107,12 @@
     border-radius: 64px 0 0 64px;
 }
 
-.login{
+.img-register{
+    background-image: url('../../assets/images/lateralReg.jpeg');
+    border-radius: 0 64px 64px 0;
+}
+
+.login, .register{
     width: 100%;
     height: 100%;
     display: flex;
