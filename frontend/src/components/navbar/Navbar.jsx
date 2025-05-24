@@ -1,8 +1,13 @@
 
 import "./Navbar.css"
 import { NavLink } from "react-router-dom"
+import { BsPerson, BsSearch } from "react-icons/bs"
 
 const Navbar = () => {
+
+    console.log(localStorage.getItem("token"))
+
+
     return(
         <>
             <div className="navbar">
@@ -16,11 +21,12 @@ const Navbar = () => {
                             type="text" 
                             placeholder="Busque por algo..."
                             />
+                            <BsSearch />
                         </div>    
                     </form>
                 </div>
-                <div>
-                    Perfil
+                <div id="profileIcon"> 
+                   <BsPerson />
                 </div>
             </div>
         </>

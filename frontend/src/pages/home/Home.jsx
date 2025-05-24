@@ -9,9 +9,9 @@ const Home = () => {
             <Navbar />
             <div className="contentHome">
                 <MenuLateral />
-                <div className="contentMain">
+                {/*<div className="contentMain">
                     <Outlet />
-                </div>
+                </div>*/}
             </div>
         </>
     )

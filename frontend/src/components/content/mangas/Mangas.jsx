@@ -1,7 +1,8 @@
 import "./Mangas.css"
 import { useState, useEffect } from "react"
 
-const apiMangas = 'https://api.mangadex.org/manga?limit=20&includes[]=cover_art'
+const apiMangas = 'https://api.mangadex.org/manga?contentRating[]=safe&limit=100&includes[]=cover_art';
+
 
 
 export const Mangas = () => {

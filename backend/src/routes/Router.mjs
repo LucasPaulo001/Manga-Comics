@@ -6,9 +6,5 @@ import mangaRouter from "./mangaRouter.mjs";
 router.use('/api/users', userRouter);
 router.use('/api/mangaHQs', mangaRouter);
 
-router.get("/", (req, res) => {
-    res.send("Rota principal funcionando!");
-})
-
 
 export default router;
