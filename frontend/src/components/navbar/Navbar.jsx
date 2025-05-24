@@ -1,12 +1,13 @@
 
 import "./Navbar.css"
+import { NavLink } from "react-router-dom"
 
 const Navbar = () => {
     return(
         <>
             <div className="navbar">
                 <div>
-                    <h1>Manga Comics</h1>
+                    <NavLink to={'/'}><h1>Manga Comics</h1></NavLink>
                 </div>
                 <div>
                     <form>

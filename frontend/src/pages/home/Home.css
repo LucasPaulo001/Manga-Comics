@@ -1,5 +1,14 @@
 .contentHome{
     display: grid;
     grid-template-columns: 20% 1fr;
-    height: 100vh;
+    background-color: #10243F;
+    color: white;
+}
+
+.contentMain{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    row-gap: 8vw;
+    column-gap: 2vw;
+    padding: 1rem 1rem 10rem;
 }
