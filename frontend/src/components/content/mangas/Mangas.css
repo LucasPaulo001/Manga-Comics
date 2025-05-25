@@ -24,3 +24,10 @@
     cursor: pointer;
     transition: .2s ease-in-out;
 }
+
+.loading{
+    font-size: 3vw;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}

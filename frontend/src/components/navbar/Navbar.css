@@ -38,3 +38,14 @@ a{
 #profileIcon:hover{
     box-shadow: 1px 1px 20px 4px;
 }
+
+.input button{
+    border: none;
+    height: 30px;
+    width: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: 0;
+}

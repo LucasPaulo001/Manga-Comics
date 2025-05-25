@@ -4,11 +4,20 @@ import { NavLink } from "react-router-dom"
 import { BsPerson, BsSearch } from "react-icons/bs"
 import { user } from "../../contexts/UserContext"
 import { useAuth } from "../../contexts/AuthContext"
+import { useSearch } from "../../contexts/SearchContext"
+import { useState } from "react"
 
 
 const Navbar = () => {
     const { userData } = user()
     const { token } = useAuth()
+    const { setSearchTerm } = useSearch()
+    const [term, setTerm] = useState()
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+            setSearchTerm(term)
+        }
 
     return (
         <>
@@ -19,13 +28,14 @@ const Navbar = () => {
                             <NavLink to={'/'}><h1>Manga Comics</h1></NavLink>
                         </div>
                         <div>
-                            <form>
+                            <form onSubmit={handleSubmit}>
                                 <div className="input">
                                     <input className="inputPadrao"
                                         type="text"
                                         placeholder="Busque por algo..."
+                                        onChange={(e) => setTerm(e.target.value)}
                                     />
-                                    <BsSearch />
+                                    <button><BsSearch /></button>
                                 </div>
                             </form>
                         </div>
