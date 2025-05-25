@@ -1,0 +1,16 @@
+.hqCard{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.hqCard a, .hqCard a img{
+    height: 100%;
+    width: 100%;
+    transition: .4s ease-in-out;
+}
+
+.hqCard a img:hover{
+    opacity: .6;
+}
