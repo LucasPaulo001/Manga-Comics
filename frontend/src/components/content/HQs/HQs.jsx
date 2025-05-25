@@ -2,6 +2,7 @@ import md5 from "crypto-js/md5"
 import "./HQs.css"
 
 import { useState, useEffect } from "react"
+import { ModalInfo } from "../modal/ModalInfo"
 
 const PUBLIC_KEY = import.meta.env.VITE_MARVEL_PUBLIC_KEY
 const PRIVATE_KEY = import.meta.env.VITE_MARVEL_PRIVATE_KEY
@@ -11,6 +12,7 @@ export const HQs = () => {
     const [page, setPages] = useState(0)
     const [hasMore, setHasMore] = useState(true)
     const [loading, setLoading] = useState(false)
+    const [modal, setModal] = useState(false)
 
     const fetchData = async () => {
         try{    

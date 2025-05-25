@@ -1,0 +1,81 @@
+.modalInfo{
+    height: 100vh;
+    top: 0;
+    left: 0;
+    right: 0;
+    position: fixed;
+    z-index: 999;
+    width: 100vw;
+    background-color: #06162b9a;
+    backdrop-filter: blur(3px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modalInfo svg{
+    position: absolute;
+    right: 0px;
+    top: 0;
+    margin: 0.4em;
+    color: red;
+    font-size: 3vw;
+    cursor: pointer;
+}
+
+.dataItem{
+    height: 300px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 15px;
+    padding: 3vw;
+}
+
+.dataItem img{
+    height: 100%;
+}
+
+.dataItem p{
+    margin: 0 4vw;
+    font-size: 2vw;
+    display: flex;
+    align-items: center;
+}
+
+.btn{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.btn button{
+    height: 30px !important;
+    width: 10em;
+}
+
+#topItem{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2vw;
+}
+
+#bottomItem{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2vw;
+    justify-content: space-evenly;
+}
+
+.contentItem{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100%;
+    font-size: 2vw;
+}

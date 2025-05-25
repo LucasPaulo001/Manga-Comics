@@ -1,6 +1,7 @@
 import "./Mangas.css"
 import { useState, useEffect } from "react"
 import { useSearch } from "../../../contexts/SearchContext"
+import { ModalInfo } from "../modal/ModalInfo"
 
 //const apiMangas = 'https://api.mangadex.org/manga?contentRating[]=safe&limit=100&includes[]=cover_art';
 
@@ -11,6 +12,8 @@ export const Mangas = () => {
     const [page, setPage] = useState(0)
     const [hasMore, setHasMore] = useState(true)
     const [loading, setLoading] = useState(null)
+    const [modal, setModal] = useState(false)
+    const [selectItem, setSelectItem] = useState(null)
     console.log("Buscando página", page)
 
     const fetchMangas = async () => {
@@ -92,6 +95,17 @@ export const Mangas = () => {
         }
     }, [mangas, hasMore])
 
+    //Modal
+    const handleModal = (manga) => {
+        setSelectItem(manga)
+        setModal(true)
+    }
+
+    const closeModal = (manga) => {
+        setSelectItem(null)
+        setModal(false)
+    }
+
     return (
         <>
             
@@ -116,18 +130,22 @@ export const Mangas = () => {
                     : "https://via.placeholder.com/200x300";
 
                 return (
+                    
                     <div key={manga.id} className="mangaCard">
-                        <a href={`https://mangadex.org/title/${manga.id}`}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <img className="imgCapa" src={coverUrl} alt={title} />
-                        </a>
+                        
+                            <img onClick={() => handleModal(manga)} className="imgCapa" src={coverUrl} alt={title} />
+                
                         <p>{title}</p>
+
                     </div>
+                   
                 );
 
             })}
+
+            {modal && selectItem && (
+                <ModalInfo info={selectItem} onClose={closeModal} />
+            )}
             <div id="sentinelaScroll" style={{ height: "1px" }}></div>
 
             {loading && (
@@ -139,3 +157,8 @@ export const Mangas = () => {
         </>
     )
 }
+
+
+{/*{/*href={`https://mangadex.org/title/${manga.id}`
+target="_blank"
+rel="noopener noreferrer"*/}
