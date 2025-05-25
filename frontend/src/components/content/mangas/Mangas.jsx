@@ -21,10 +21,19 @@ export const Mangas = () => {
 
             const urlBase = 'https://api.mangadex.org/manga'
 
-            const titleQuery = searchTerm ?
-                `?title=${encodeURIComponent(searchTerm)}` : ""
+            //Formatação de queryParams para a busca
+            const queryParams = new URLSearchParams({
+                limit: 20,
+                offset: page * 10,
+                "includes[]": "cover_art",
+                "contentRating[]": "safe"
+            })
 
-            const url = `${urlBase}?limit=20&offset=${page * 10}&includes[]=cover_art&contentRating[]=safe${titleQuery}`
+            if (searchTerm) {
+                queryParams.set("title", searchTerm)
+            }
+
+            const url = `${urlBase}?${queryParams.toString()}`
 
             const res = await fetch(url)
 
