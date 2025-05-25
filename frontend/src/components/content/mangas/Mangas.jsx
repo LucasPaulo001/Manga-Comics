@@ -49,7 +49,12 @@ export const Mangas = () => {
 
             return (
                 <div key={manga.id} className="mangaCard">
-                    <img src={coverUrl} alt={title} />
+                    <a href={`https://mangadex.org/title/${manga.id}`} 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >
+                        <img className="imgCapa" src={coverUrl} alt={title} />
+                    </a>
                     <p>{title}</p>
                 </div>
             );  

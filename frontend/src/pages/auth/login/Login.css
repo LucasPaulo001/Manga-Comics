@@ -39,10 +39,6 @@
     right: 0;
 }
 
-.register{
-    gap: 2vw;
-}
-
 .desative_register{
     width: 0;
     overflow: hidden;

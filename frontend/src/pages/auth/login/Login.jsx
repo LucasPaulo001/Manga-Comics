@@ -39,12 +39,6 @@ const Login = () => {
         setPassword("")
     }
 
-    useEffect(() => {
-        if(usuario){
-            Navigate("/home")
-        }
-    }, [usuario])
-
 
     //Configurações de registro
     const handleRegister = async (e) => {

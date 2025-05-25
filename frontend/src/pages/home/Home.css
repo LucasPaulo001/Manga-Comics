@@ -8,7 +8,7 @@
 .contentMain{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    row-gap: 8vw;
+    row-gap: 4vw;
     column-gap: 2vw;
     padding: 1rem 1rem 10rem;
 }

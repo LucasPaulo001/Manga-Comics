@@ -77,7 +77,7 @@ export const AuthProvider = ({children}) => {
 
     //Função de logout
     const logout = () => {
-        setUsuario(null)
+        setUsuario({})
         setToken(null)
         localStorage.removeItem("token")
 

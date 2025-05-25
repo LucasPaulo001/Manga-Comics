@@ -1,16 +1,25 @@
 import "./MenuLateral.css"
 
-import { BsBookHalf, BsBookmarkFill, BsNewspaper, BsTagsFill } from "react-icons/bs"
+import { BsBookHalf, BsBoxArrowRight, BsGearFill, BsBookmarkFill, BsNewspaper, BsTagsFill } from "react-icons/bs"
 
-import { Link, NavLink } from "react-router-dom"
+import { Link, NavLink, useNavigate } from "react-router-dom"
+import { useAuth } from "../../contexts/AuthContext"
 
 export const MenuLateral = () => {
+    const { logout } = useAuth()
+    const navigate = useNavigate()
+
+    const handleLogout = () => {
+        logout()    
+        
+    }   
+
     return (
         <>
             <div className="menuLateral">
                 <div className="iconsTop">
                     <ul>
-                        <li className="">
+                        <li>
                             <NavLink to={'/mangas'} className={({isActive}) => isActive ? "isActive" : ""}>
                                 <BsBookHalf /> Mangas
                             </NavLink>
@@ -36,6 +45,19 @@ export const MenuLateral = () => {
                             </NavLink>
                         </li>
 
+                    </ul>
+                </div>
+
+                <div className="iconsBottom">
+                    <ul>
+                        <li>
+                            <NavLink to={'/Settings'}>
+                                <BsGearFill /> Configurações
+                            </NavLink>
+                        </li>
+                        <li onClick={handleLogout} className="logout">
+                            <BsBoxArrowRight /> Sair
+                        </li>
                     </ul>
                 </div>
             </div>

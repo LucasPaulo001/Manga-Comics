@@ -1,5 +1,4 @@
 import './App.css'
-import { AuthProvider } from './contexts/AuthContext'
 
 //Componentes
 import Login from './pages/auth/login/Login'
@@ -11,17 +10,22 @@ import { Salvos } from './components/content/saves/Salvos'
 import { Novidades } from './components/content/News/Novidades'
 import { Generos } from './components/content/Genres/Generos'
 import { useAuth } from './contexts/AuthContext'
+import { Profile } from './components/profile/Profile'
+import Navbar from './components/navbar/Navbar'
+
 
 //Router
 import { Routes, Route, Navigate } from "react-router-dom"
 
 
 function App() {
-  const { token } = useAuth()
+  const { token, usuario } = useAuth()
+  
 
   return (
     <>
       <div className="App">
+        {token && <Navbar />}
         <Routes>
           <Route path="/login" element={!token ? <Login /> : <Navigate to="/" />} />
 
@@ -33,9 +37,10 @@ function App() {
               <Route path="salvos" element={<Salvos />} />
               <Route path="novidades" element={<Novidades />} />
               <Route path="generos" element={<Generos />} />
+              <Route path='profile' element={<Profile />}/>
             </Route>
           )}
-        
+
           {!token && <Route path="*" element={<Navigate to="/login" />} />}
         </Routes>
         <Footer />

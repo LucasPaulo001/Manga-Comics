@@ -1,8 +1,26 @@
-.mangaCard img{
+.mangaCard a img{
     width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+.mangaCard a{
     height: 100%;
 }
 
 .mangaCard p{
     font-size: 1.7vw;
+}
+
+.mangaCard{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.imgCapa:hover{
+    opacity: .5;
+    cursor: pointer;
+    transition: .2s ease-in-out;
 }

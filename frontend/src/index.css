@@ -45,6 +45,7 @@ button{
 .input{
   width: 30vw;
   display: flex;
+  justify-content: center;
   align-items: center;
   position: relative;
 }
