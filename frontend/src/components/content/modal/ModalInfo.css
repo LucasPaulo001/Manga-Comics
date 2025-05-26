@@ -10,10 +10,11 @@
     backdrop-filter: blur(3px);
     display: flex;
     justify-content: center;
+    overflow-y: auto;
     align-items: center;
 }
 
-.modalInfo svg{
+.modalInfo .closeIcon{
     position: absolute;
     right: 0px;
     top: 0;
@@ -29,18 +30,23 @@
     flex-direction: row;
     justify-content: center;
     gap: 15px;
-    padding: 3vw;
+    padding: 0 2vw;
 }
 
 .dataItem img{
     height: 100%;
+    border-radius: 10px;
 }
 
 .dataItem p{
     margin: 0 4vw;
+    gap: .5vw;
     font-size: 2vw;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
+    background-color: #06162bbd;
+    padding: 1vw;
+    border-radius: 10px;
 }
 
 .btn{
@@ -55,6 +61,25 @@
 .btn button{
     height: 30px !important;
     width: 10em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .4vw;  
+    transition: .4s ease-in-out;
+}
+
+.btn button:hover .heartSave{
+    color: rgb(255, 74, 74);
+    font-size: 1.2vw;
+}
+
+.btn button:hover .starIcon{
+    color: rgb(222, 255, 74);
+    font-size: 1.2vw;
+}
+
+.btn button:hover{
+    background-color: #031835be;
 }
 
 #topItem{
@@ -72,10 +97,16 @@
     justify-content: space-evenly;
 }
 
+.msg{
+    background-color: rgba(255, 255, 255, 0.705);
+    text-align: center;
+    padding: 5px !important;
+}
+
 .contentItem{
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: center;
     height: 100%;
     font-size: 2vw;
 }

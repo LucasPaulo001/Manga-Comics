@@ -1,55 +1,27 @@
 import mongoose, { Schema } from "mongoose";
 
 const MangaSchema = new Schema({
-    titulo: { 
+    id: {
         type: String,
         required: true,
         unique: true
     },
-    author: {
+    title: {
+        type: String,
+        required: true,
+    },
+    coverUrl: {
         type: String,
         required: true
     },
-    genero: {
-        type: [ String ],
-        required: true
-    },
-    capa: {
+    description: {
         type: String,
-        required: true
+        default: "Sem descrição"
     },
-    sinopse: {
-        type: String,
-    },
-    capitulos: [{
-        numero: Number,
-        titulo: String,
-        imagem: [ String ]
-    }],
-    notaMedia: {
-        type: Number,
-        default: 0
-    },
-    totalAvaliacoes: {
-        type: Number,
-        default: 0
-    },
-    avaliacoes: [{
-        author: {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "User"
-        },
-        nota: {
-            type: Number,
-            min: 0,
-            max: 10,
-        },
-        comentario: { type: String }
-    }],
-    criadoEm: {
+    createdAt: {
         type: Date,
         default: Date.now
     }
-});
+})
 
 export default mongoose.model("Manga", MangaSchema);

@@ -1,0 +1,32 @@
+.list{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    row-gap: 3vw;
+    column-gap: 2vw;
+}
+
+.salvos-lista{
+    display: flex;
+    flex-direction: column;
+    gap: 4vw;
+}
+
+.lineSaves{
+    margin: 5px 0 !important;
+}
+
+.manga-card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2vw;
+    font-size: 1.5vw;
+}
+
+.image{
+    height: 20vw;
+}
+
+.image img{
+    height: 100%;
+}
