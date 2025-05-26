@@ -12,15 +12,17 @@
 }
 
 .lineSaves{
-    margin: 5px 0 !important;
+    margin: 2vw 0 !important;
 }
 
 .manga-card{
     display: flex;
+    text-align: center;
     flex-direction: column;
-    align-items: center;
-    gap: 2vw;
+    gap: 1vw;
     font-size: 1.5vw;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .image{
@@ -29,4 +31,19 @@
 
 .image img{
     height: 100%;
+}
+
+.btnInteract{
+    border: none;
+    width: 30px;
+}
+
+.btnInteract svg{
+    font-size: 2vw;
+    color: rgba(255, 80, 80, 0.459);
+    transition: .4s ease-in-out;
+}
+
+.btnInteract svg:hover{
+    color: red;
 }

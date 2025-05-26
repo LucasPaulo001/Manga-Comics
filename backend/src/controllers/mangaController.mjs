@@ -80,3 +80,25 @@ export const mangaSaved = async (req, res) => {
 export const mangas = async (req, res) => {
     res.send("Listando mangas");
 }
+
+
+//Rota para remover mangás (salvos)
+
+export const removeMangaSaved = async (req, res) => {
+    const { userId, mangaId } = req.body
+    try{
+
+        await User.updateOne(
+            { _id: userId },
+            { $pull: { mangaSaved: mangaId } }
+        );
+
+        await Maga.findByIdAndDelete(mangaId)
+
+        res.status(201).json({message: "Removido dos salvos!"})
+        
+    }
+    catch(error){
+        res.status(500).json({message: "Erro interno do servidor. "})
+    }
+}
