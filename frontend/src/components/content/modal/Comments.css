@@ -1,0 +1,43 @@
+.formComment .localInput .inputPadrao::placeholder{
+    color: silver;
+}
+
+.formComment{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2vw;
+}
+
+.localInput{
+    width: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.localInput .inputPadrao{
+    width: 100%;
+}
+
+.comentarios{
+    width: 100%;
+    font-size: 2vw;
+    background-color: #ffffff45;
+    padding: 2vw;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 2vw;
+    height: 50vh;
+}
+
+.commentItem{
+    display: flex;
+    justify-content: space-between;
+}
+
+.sendBtn{
+    width: 90px;
+}

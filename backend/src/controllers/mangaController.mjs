@@ -1,4 +1,4 @@
-import Maga from "../models/Maga.mjs";
+import Manga from "../models/Manga.mjs";
 import User from "../models/User.mjs";
 
 //Rotas
@@ -14,7 +14,7 @@ export const saveManga = async (req, res) => {
 
     try{
 
-        const mangaExist = await Maga.findOne({id})
+        const mangaExist = await Manga.findOne({id})
 
         if(mangaExist){
             return res.status(404).json({message: "Mangá já está salvo!"})
@@ -24,7 +24,7 @@ export const saveManga = async (req, res) => {
             return res.status(400).json({message: "Id do usuário é obrigatório!"})
         }
 
-        const newManga = await new Maga({
+        const newManga = await new Manga({
             title,
             coverUrl,
             description,
@@ -93,12 +93,73 @@ export const removeMangaSaved = async (req, res) => {
             { $pull: { mangaSaved: mangaId } }
         );
 
-        await Maga.findByIdAndDelete(mangaId)
+        await Manga.findByIdAndDelete(mangaId)
 
         res.status(201).json({message: "Removido dos salvos!"})
         
     }
     catch(error){
         res.status(500).json({message: "Erro interno do servidor. "})
+    }
+}
+
+//Rota de comentário em mangá
+
+export const mangaComment = async (req, res) => {
+    const { userId, mangaId, comment } = req.body
+
+    try{
+
+        const user = await User.findById(userId).populate("mangaSaved")
+
+        const hasSaved = user.mangaSaved.some((manga) => manga.id === mangaId)
+
+        if(!hasSaved){
+            return res.status(403).json({message: "Você precisa salvar a obra antes de comentar!"})
+        }
+
+        const manga = await Manga.findOne({id: mangaId})
+
+        if(!manga){
+            res.status(404).json({message: "Obra não encontrada!"})
+        }
+
+        const newComment = {
+            author: userId,
+            comment: comment
+        }
+
+        manga.avaliations.push(newComment)
+        await manga.save()
+
+        res.status(201).json({newComment})
+    }
+    catch(error){
+        res.status(500).json({message: "Erro interno do servidor."})
+        console.log(error)
+    }
+}
+
+//Rota para listar comentários
+export const listComments = async (req, res) => {
+    const { mangaId } = req.params
+
+    try{
+
+        const manga = await Manga.findOne({id: mangaId}).populate("avaliations.author")
+
+        if(!manga){
+            return res.status(404).json({message: "Obra não encontrada!"})
+        }
+
+        const comments = manga.avaliations
+
+        res.status(200).json({comments})
+
+
+    }
+    catch(error){
+        res.status(500).json({message: "Erro interno do servidor. "})
+        console.log(error)
     }
 }

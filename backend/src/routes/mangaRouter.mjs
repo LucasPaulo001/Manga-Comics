@@ -7,6 +7,8 @@ import { mangas } from "../controllers/mangaController.mjs";
 import { saveManga } from "../controllers/mangaController.mjs";
 import { mangaSaved } from "../controllers/mangaController.mjs";
 import { removeMangaSaved } from "../controllers/mangaController.mjs";
+import { mangaComment } from "../controllers/mangaController.mjs";
+import { listComments } from "../controllers/mangaController.mjs";
 
 //Middlewares
 import authGuard from "../middlewares/authGurad.mjs";
@@ -28,5 +30,11 @@ mangaRouter.get('/mangas', authGuard, mangas);
 
 //Remover mangas (salvos)
 mangaRouter.delete('/mangaRemove', removeMangaSaved)
+
+//Comentar em mangás
+mangaRouter.post('/comment', mangaComment)
+
+//Listando comentários
+mangaRouter.get('/listComments/:mangaId', listComments)
 
 export default mangaRouter;

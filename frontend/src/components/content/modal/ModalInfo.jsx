@@ -2,6 +2,7 @@ import "./ModalInfo.css"
 import { BsXLg, BsHeartFill, BsStarFill } from "react-icons/bs"
 import { user } from "../../../contexts/UserContext"
 import { useState } from "react"
+import { Comments } from "./Comments"
 
 export const ModalInfo = ({ info, onClose }) => {
     const { userData } = user()
@@ -25,8 +26,8 @@ export const ModalInfo = ({ info, onClose }) => {
 
     const handleSave = async (userId, id, coverUrl, title, description) => {
         console.log(userId)
-        try{
-             const res = await fetch(apiSave, {
+        try {
+            const res = await fetch(apiSave, {
                 method: "POST",
                 headers: {
                     'Content-type': 'application/json'
@@ -36,17 +37,17 @@ export const ModalInfo = ({ info, onClose }) => {
 
             const data = await res.json()
 
-            if(res.ok){
+            if (res.ok) {
                 setSuccess(data.message)
                 console.log(data)
                 setError("")
             }
-            else{
+            else {
                 setError(data.message)
                 setSuccess("")
             }
         }
-        catch(error){
+        catch (error) {
             console.log(error)
         }
     }
@@ -56,30 +57,35 @@ export const ModalInfo = ({ info, onClose }) => {
 
             <div key={info.id} className="modalInfo">
                 <BsXLg className="closeIcon" onClick={() => onClose(false)} />
-                    <div className="contentItem">
-                        <div className="dataItem">
-                            <div id="topItem">
-                                <img src={coverUrl} alt="" />
-                            </div>
-                             <div id="bottomItem">
-                                <h2>{title}</h2>
-                                <p><strong>Descrição:</strong> {description}</p>
-                                 <div className="btn">
-                                    <a href={`https://mangadex.org/title/${info.id}`}
+                <div className="contentItem">
+                    <div className="dataItem">
+                        <div id="topItem">
+                            <img src={coverUrl} alt="" />
+                        </div>
+                        <div id="bottomItem">
+                            <h2>{title}</h2>
+                            <p><strong>Descrição:</strong> {description}</p>
+                            <div className="btn">
+                                <a href={`https://mangadex.org/title/${info.id}`}
                                     target="_blank" rel="noopener noreferrer">
-                                        <button>Ver no MangáDex</button>
-                                    </a>
-                                    <button onClick={() => handleSave(userData._id, info.id, coverUrl, title, description)}> <BsHeartFill className="heartSave" /> Salvar</button>
-                                    
-                                    {success && <span className="successMessage msg">{success}</span>}
+                                    <button>Ver no MangáDex</button>
+                                </a>
+                                <button onClick={() => handleSave(userData._id, info.id, coverUrl, title, description)}> <BsHeartFill className="heartSave" /> Salvar</button>
 
-                                    {error && <span className="errorMessage msg">{error}</span>}
-                                    <button> <BsStarFill className="starIcon" />Avaliar</button>
-                                </div>
-                               
-                             </div>
+                                <button> <BsStarFill className="starIcon" />Avaliar</button>
+                            </div>
+                            {error && <span className="errorMessage msg">{error}</span>}
+                            {success && <span className="successMessage msg">{success}</span>}
                         </div>
                     </div>
+                    
+                </div>
+                <div className="localComments">
+                    <h1>Comentários</h1>
+
+                    <Comments title={title} mangaId={info.id}  />
+                </div>
+
             </div>
 
 

@@ -42,6 +42,13 @@ button{
   box-shadow: 1px 1px 4px 6px #409cff;
 }
 
+.lineDiv{
+  height: 5px;
+  width: 95%;
+  border-radius: 10px;
+  background-color: #409cff;
+}
+
 .input{
   width: 30vw;
   display: flex;
@@ -68,6 +75,8 @@ button{
     padding: 1vw;
     border-radius: 10px;
     font-size: 2vw;
+    position: absolute;
+    bottom: -9px;
 }
 
 

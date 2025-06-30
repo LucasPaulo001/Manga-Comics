@@ -18,6 +18,21 @@ const MangaSchema = new Schema({
         type: String,
         default: "Sem descrição"
     },
+    avaliations: [{
+        comment: {  
+            type: String,
+            requred: true
+        },
+        author: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'User',
+            required: true
+        },
+        date: {
+            type: Date,
+            default: Date.now
+        }
+    }],
     createdAt: {
         type: Date,
         default: Date.now
