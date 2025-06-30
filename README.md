@@ -5,7 +5,7 @@ Um site de leitura e gerenciamento de Mangás e HQs. Os usuários podem se cadas
 ## 🚀 Tecnologias Utilizadas
 
 - **React.js** – Biblioteca principal da interface
-- **Redux Toolkit** – Gerenciamento global de estado
+- **ContextAPI** – Gerenciamento global de estado
 - **React Router DOM** – Navegação entre rotas
 - **Node.js / Express**  Backend 
 - **MongoDB / Firebase** Banco de dados
